@@ -11,9 +11,27 @@
   <link rel="stylesheet" href="style.css">
 
   <!--Importation de Vue-->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 </head>
 <body>
   <div id="app">
+    <h1><a :href="urlNespresso">{{title}}</a></h1>
+    <p>{{description}}</p>
+
+    <img :src="image" alt="colombia">
+
+    <p v-if="stock>10">Disponible</p>
+    <p v-else-if="stock<=10 && stock>0">Peu de stock</p>
+    <p v-else>Indisponible</p>
+
+    <p v-show="inSale">en vente</p>
+
+    <ul>
+      <li v-for="detail in details">{{detail}}</li>
+    </ul>
+
+    <div v-for="carouselImage in carouselImages" :key="carouselImage.id">{{carouselImage.text}}</div>
+
   </div>
 
   <!--Bootstrap-->
