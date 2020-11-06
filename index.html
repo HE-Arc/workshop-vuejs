@@ -18,7 +18,16 @@
     <h1><a :href="urlNespresso">{{title}}</a></h1>
     <p>{{description}}</p>
 
-    <img :src="image" alt="colombia">
+    <img :src="image" height="200" alt="colombia">
+    <div>
+      <span v-for="carouselImage in carouselImages"
+        :key="carouselImage.id"
+        @mouseover="updateImage(carouselImage.image)">
+        <img height="50"
+          alt="carouselImage.text"
+          :src="carouselImage.image">
+      </span>
+    </div>
 
     <p v-if="stock>10">Disponible</p>
     <p v-else-if="stock<=10 && stock>0">Peu de stock</p>
@@ -27,10 +36,31 @@
     <p v-show="inSale">en vente</p>
 
     <ul>
-      <li v-for="detail in details">{{detail}}</li>
+      <li v-for="detail in details"
+        :key="detail.id"
+        :style="{ color: detail.color }">
+        {{ detail.text }}
+      </li>
     </ul>
 
     <div v-for="carouselImage in carouselImages" :key="carouselImage.id">{{carouselImage.text}}</div>
+
+   
+    <div :class="[cart > 0 ? 'cartFilled' : '']">
+      Panier({{ cart }})
+    </div>
+    <button
+      @click="addToCart"
+      :style="styles.roundButton"
+      :disabled="stock <= 0">
+      
+      Ajouter au panier
+    </button>
+    <button 
+    @click="removeToCart"
+    :style="styles.roundButton">
+      Enlever au panier
+    </button>
 
   </div>
 
