@@ -2,8 +2,8 @@
 
 Le but de ce projet est de comprendre les concepts fondamentaux de VueJS dans un projet très simple réalisé de 0 avec les étudiants.
 
-Branche main : projet fournit de base
-Branche dev : projet complété par les étudiants au fur et à mesure
+- Branche main : projet fournit de base
+- Branche workshop-2020 : projet complété par les étudiants de la volée 2020 au fur et à mesure
 
 # Solution
 
