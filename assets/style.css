@@ -1,0 +1,8 @@
+.disabledButton {
+	background-color: #d8d8d8 !important;
+	cursor: not-allowed !important;
+}
+
+.cartFilled {
+	color: rgb(17, 100, 0);
+}

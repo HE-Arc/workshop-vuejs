@@ -1,26 +1,72 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Ceci est un titre</title>
+	<head>
+		<meta charset="utf-8" />
+		<title>Ceci est un titre</title>
 
-  <!--Bootstrap-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<!--Bootstrap-->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+			crossorigin="anonymous"
+		/>
 
-  <!--Notre CSS-->
-  <link rel="stylesheet" href="./assets/style.css">
+		<!--Notre CSS-->
+		<link rel="stylesheet" href="./assets/style.css" />
 
-  <!--Importation de Vue-->
-</head>
-<body>
-  <div id="app">
-  </div>
+		<!--Importation de Vue-->
+		<script src="https://unpkg.com/vue@3.2.20"></script>
+	</head>
+	<body>
+		<div id="app">
+      <div :class="cart > 0 ? 'cartFilled' : ''">
+        Panier({{cart}})
+      </div>
 
-  <!--Bootstrap-->
-  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+			<h1>{{title}}</h1>
+			<p>{{description}}</p>
 
-  <!--Notre JS contenant notre app Vue-->
-  <script src='./main.js'></script>
-</body>
+      <p v-if="stock > 10">Disponible</p>
+      <p v-else-if="stock <= 10 && stock > 0">Peu de stock</p>
+      <p v-else>Plus de stock</p>
+
+      <img :src="image" alt="colombia" height="200">
+
+      <div>
+        <span v-for="carouselImage in carouselImages"
+          :key="carouselImage.id"
+          @mouseover="updateImage(carouselImage.image)">
+          <img height="50"
+            alt="carouselImage.text"
+            :src="carouselImage.image">
+        </span>
+      </div>
+
+      <ul>
+        <li v-for="detail in details" :key="detail.id" :style="{ backgroundColor: detail.color }">{{ detail.text }}</li>
+      </ul>
+
+      <button @click="addToCart" :style="styles.roundButton" :disabled="stock <= 0" :class="{ disabledButton:stock <= 0 }">Ajouter au panier</button>
+		</div>
+
+		<!--Bootstrap-->
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+			integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+			crossorigin="anonymous"
+		></script>
+
+		<!--Notre JS contenant notre app Vue-->
+		<script src="./main.js"></script>
+
+		<script>
+			const mountedApp = app.mount("#app");
+		</script>
+	</body>
 </html>
