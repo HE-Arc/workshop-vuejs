@@ -20,34 +20,21 @@
 	</head>
 	<body>
 		<div id="app">
-      <div :class="cart > 0 ? 'cartFilled' : ''">
-        Panier({{cart}})
-      </div>
+			<div class="container">
+				<div class="row">
+					<div class="col-8">
+						<h1>{{title}}</h1>
+						<p>{{description}}</p>
+					</div>
 
-			<h1>{{title}}</h1>
-			<p>{{description}}</p>
-
-      <p v-if="stock > 10">Disponible</p>
-      <p v-else-if="stock <= 10 && stock > 0">Peu de stock</p>
-      <p v-else>Plus de stock</p>
-
-      <img :src="image" alt="colombia" height="200">
-
-      <div>
-        <span v-for="carouselImage in carouselImages"
-          :key="carouselImage.id"
-          @mouseover="updateImage(carouselImage.image)">
-          <img height="50"
-            alt="carouselImage.text"
-            :src="carouselImage.image">
-        </span>
-      </div>
-
-      <ul>
-        <li v-for="detail in details" :key="detail.id" :style="{ backgroundColor: detail.color }">{{ detail.text }}</li>
-      </ul>
-
-      <button @click="addToCart" :style="styles.roundButton" :disabled="stock <= 0" :class="{ disabledButton:stock <= 0 }">Ajouter au panier</button>
+					<div :class="cart > 0 ? 'cartFilled' : ''" class="col-4">Panier({{cart}})</div>
+		
+					<div class="col-12">
+						<product-display :premiumProp="premium" @add-to-cart="updateCart"></product-display>
+						<product-display :premiumProp="premium" @add-to-cart="updateCart"></product-display>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<!--Bootstrap-->
@@ -64,6 +51,9 @@
 
 		<!--Notre JS contenant notre app Vue-->
 		<script src="./main.js"></script>
+		<script src="./components/ProductDisplay.js"></script>
+		<script src="./components/ReviewForm.js"></script>
+		<script src="./components/ReviewList.js"></script>
 
 		<script>
 			const mountedApp = app.mount("#app");
