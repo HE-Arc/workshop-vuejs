@@ -37,6 +37,8 @@ Copier coller le CDN Vue sur la page de Vue 3 dans la balise head de l'html, nou
 <script src="https://unpkg.com/vue@3.2.37"></script>
 ```
 
+> Source for CDN : https://www.bootstrapcdn.com/
+
 # 2. Creating the Vue App
 
 ## Init app Vue
