@@ -43,7 +43,12 @@ Copier coller le CDN Vue sur la page de Vue 3 dans la balise head de l'html, nou
 
 ## Init app Vue
 
-Dans l'html avoir un div avec `id="app"`.
+Dans l'html avoir un div avec `id="app"` en haut de la balise `<body>`.
+
+```html
+<div id="app"></div>
+```
+
 Et donc dans `main.js` on peut créer notre application Vue.
 
 ```js
