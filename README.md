@@ -6,19 +6,19 @@ Toutes les étapes sont décrites à la suite de ce document.
 
 # 1. Introduction
 
-## Github base project
+## Projet sur GitHub
 
-https://github.com/HE-Arc/workshop-vuejs-simple-demo
+Cloner le projet en SSH, et se déplacer sur la bonne branche pour démarrer le workshop.
+
+https://github.com/HE-Arc/workshop-vuejs
 
 ```git
-git clone git@github.com:HE-Arc/workshop-vuejs-simple-demo.git
+git clone git@github.com:HE-Arc/workshop-vuejs.git
 ```
 
 ## Vue Devtools
 
 Installer Vue Devtools à partir d'ici : https://devtools.vuejs.org/guide/installation.html
-
-**ATTENTION** pour l'instant il faut utiliser la verison beta qui est compatible avec Vue3
 
 Vue Devtools permet de visualiser la structure et les données de l'application.
 Se qu'il se passe dans l'application et dans chaque composants.
@@ -34,7 +34,7 @@ Si VSCode est utilisé installer `es6-string-html`, nous en aurons besoin plus t
 Copier coller le CDN Vue sur la page de Vue 3 dans la balise head de l'html, nous utiliserons un version précise, donc voici le CDN pour cette version.
 
 ```html
-<script src="https://unpkg.com/vue@3.2.20"></script>
+<script src="https://unpkg.com/vue@3.2.37"></script>
 ```
 
 # 2. Creating the Vue App
