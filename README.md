@@ -6,16 +6,6 @@ Toutes les étapes sont décrites à la suite de ce document.
 
 # 1. Introduction
 
-## Projet sur GitHub
-
-Cloner le projet en SSH, et se déplacer sur la bonne branche pour démarrer le workshop.
-
-https://github.com/HE-Arc/workshop-vuejs
-
-```git
-git clone git@github.com:HE-Arc/workshop-vuejs.git
-```
-
 ## Vue Devtools
 
 Installer Vue Devtools à partir d'ici : https://devtools.vuejs.org/guide/installation.html
