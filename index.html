@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <title>Ceci est un titre</title>
+    <title>Get titred</title>
 
     <!--Bootstrap-->
     <link
@@ -21,19 +21,28 @@
   <body>
     <!--Point d'entrée de l'app Vue-->
     <div id="app">
+      <product-display></product-display>
+      <product-display></product-display>
+      <product-display></product-display>
+      <product-display></product-display>
+      <product-display></product-display>
+      <product-display></product-display>
+      <product-display></product-display>
+      <product-display></product-display>
+      <product-display></product-display>
       <h1>
         <a :href="link">{{title}}</a>
       </h1>
       <p>{{description}}</p>
       
-      <div>
+      <div :class="[ cart > 0 ? 'cartFilled': '']">
         Panier({{cart}})
       </div>
 
       <img v-bind:src="image" height="200">
       
       <div>
-        <span v-for="image in carouselImages" :key="image.id" @mouseover="updateImage(image.image)">
+        <span v-for="(image, index) in carouselImages" :key="image.id" @mouseover="updateSelectedImage(index)">
           <img :src="image.image" :alt="image.text" height="50">
         </span>
       </div>
@@ -52,12 +61,12 @@
       </p>
 
       <ul>
-        <li v-for="detail in details">
-          {{detail}}
+        <li v-for="detail in details" :key="detail.id" :style="{color: detail.color}">
+          {{detail.text}}
         </li>
       </ul>
 
-      <button v-on:click="addToCart">{{stringCart}}</button>
+      <button v-on:click="addToCart" :style="styles.roundButton" :disabled="inStock <= 0" :class="{disabledButton: inStock <= 0}">{{stringCart}}</button>
 
     </div>
 

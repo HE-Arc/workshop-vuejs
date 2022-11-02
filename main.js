@@ -1,16 +1,33 @@
 const app = Vue.createApp({
     data: function(){
         return {
-            title: "Achat de cafés Nespresso",
+            action: "Achat de cafés",
+            brand: "Nespresso",
             description:"super chers ce que tu veux",
-            image: "assets/images/colombia_de_cote.png",
+            selectedImage: 0,
             link: "https://www.nespresso.com",
             inStock: 10,
-            details: [
-                "Doux",
-                "Volupteux",
-                "Chouette",
-                "mais nul quand-même"
+            details: [                
+                {
+                    text : "Doux",
+                    id: 0,
+                    color: "#659875"
+                },                
+                {
+                    text : "Volupteux",
+                    id: 1,
+                    color: "#331023"
+                },                
+                {
+                    text : "Chouette",
+                    id: 2,
+                    color: "#10ff00"
+                },                
+                {
+                    text : "mais",
+                    id: 3,
+                    color: "#55ff44"
+                }
             ],
             carouselImages: [
                 {
@@ -30,8 +47,18 @@ const app = Vue.createApp({
                 }
             ],
             cart: 0,
-            stringCart: "Ajouter au panier"
+            stringCart: "Ajouter au panier",
+            styles: {
+                roundButton: {
+                    borderRadius: "20px",
+                    padding: "10px",
+                    backgroundColor: "rgb(0, 114, 180)",
+                    color: "white",
+                    cursor: "pointer"
+                  }
+            }
         }
+
     },
     methods: {
         addToCart () {
@@ -39,8 +66,36 @@ const app = Vue.createApp({
         },
         updateImage (_image) {
             this.image = _image;
+        },
+        updateSelectedImage (index) {
+            this.selectedImage = index
         }
-    }
-
+    },
+    computed: {
+        title () {
+            return this.action + " " + this.brand;
+        },
+        image () {
+            return this.carouselImages[this.selectedImage].image;
+        }
+    }    
 });
+
+app.component('product-display', {
+    template:
+    /*html*/
+    `
+    <h1>Coucou les minous</h1>
+    `,
+    data() {
+      return {
+      }
+    },
+    methods: {
+    },
+    computed: {
+    }
+  });
+
+
 
