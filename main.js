@@ -15,18 +15,32 @@ const app = Vue.createApp({
             carouselImages: [
                 {
                     id: 1,
-                    text: "Capsule 1"
+                    text: "Capsule 1",
+                    image: "assets/images/colombia_de_cote.png"
                 },
                 {
                     id: 2,
-                    text: "Capsule 2"
+                    text: "Capsule 2",
+                    image: "assets/images/colombia_paquet.png"
                 },
                 {
                     id: 3,
-                    text: "Capsule 3"
+                    text: "Capsule 3",
+                    image: "assets/images/colombia_tasse.png"
                 }
-            ]
+            ],
+            cart: 0,
+            stringCart: "Ajouter au panier"
+        }
+    },
+    methods: {
+        addToCart () {
+            this.cart += 1;
+        },
+        updateImage (_image) {
+            this.image = _image;
         }
     }
+
 });
 
