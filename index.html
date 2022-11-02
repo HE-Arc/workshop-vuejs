@@ -16,10 +16,42 @@
     <link rel="stylesheet" href="./assets/style.css" />
 
     <!--Importation de Vue-->
+    <script src="https://unpkg.com/vue@3.2.37"></script>
   </head>
   <body>
     <!--Point d'entrée de l'app Vue-->
-    <h1 style="color: green">You are READY for the workshop ;)</h1>
+    <div id="app">
+      <h1>
+        <a :href="link">{{title}}</a>
+      </h1>
+      <p>{{description}}</p>
+      <img v-bind:src="image" height="200">
+      <p v-if="inStock > 5">
+        Disponible
+      </p>
+      <p v-else-if="inStock <= 5 && 0 < inStock">
+        Peu de stock
+      </p>
+      <p v-else>
+        Indisponible
+      </p>
+      <p v-show="inStock > 5">
+        Test
+      </p>
+
+      <ul>
+        <li v-for="detail in details">
+          {{detail}}
+        </li>
+      </ul>
+
+      <div v-for="image in carouselImages" :key="image.id">
+        {{image.text}}
+      </div>
+
+
+
+    </div>
 
     <!--Bootstrap-->
     <script
@@ -35,5 +67,13 @@
 
     <!--Notre JS contenant notre app Vue-->
     <script src="./main.js"></script>
+
+    <script>
+
+      const mountedApp = app.mount("#app");
+
+
+    </script>
+
   </body>
 </html>
