@@ -21,15 +21,6 @@
   <body>
     <!--Point d'entrée de l'app Vue-->
     <div id="app">
-      <product-display></product-display>
-      <product-display></product-display>
-      <product-display></product-display>
-      <product-display></product-display>
-      <product-display></product-display>
-      <product-display></product-display>
-      <product-display></product-display>
-      <product-display></product-display>
-      <product-display></product-display>
       <h1>
         <a :href="link">{{title}}</a>
       </h1>
@@ -39,6 +30,9 @@
         Panier({{cart}})
       </div>
 
+      <product-display :premium="true"></product-display>
+      <product-display :premium="false"></product-display>
+      
     </div>
 
     <!--Bootstrap-->
@@ -55,6 +49,7 @@
 
     <!--Notre JS contenant notre app Vue-->
     <script src="./main.js"></script>
+    <script src="./components/ProductDisplay.js"></script>
 
     <script>
 
