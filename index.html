@@ -30,8 +30,8 @@
         Panier({{cart}})
       </div>
 
-      <product-display :premium="true"></product-display>
-      <product-display :premium="false"></product-display>
+      <product-display :premium="true" @add-to-cart="updateCart()"></product-display>
+      <product-display :premium="false" @add-to-cart="updateCart()"></product-display>
       
     </div>
 

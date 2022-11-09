@@ -5,6 +5,9 @@ app.component('product-display', {
             required: true
         }
     },
+    emits: [
+        "add-to-cart"
+    ],
     template:
     /*html*/
     `
@@ -100,7 +103,7 @@ app.component('product-display', {
     },
     methods: {
         addToCart () {
-            this.cart += 1;
+            this.$emit("add-to-cart")
         },
         updateImage (_image) {
             this.image = _image;
