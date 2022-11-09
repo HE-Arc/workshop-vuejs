@@ -39,35 +39,6 @@
         Panier({{cart}})
       </div>
 
-      <img v-bind:src="image" height="200">
-      
-      <div>
-        <span v-for="(image, index) in carouselImages" :key="image.id" @mouseover="updateSelectedImage(index)">
-          <img :src="image.image" :alt="image.text" height="50">
-        </span>
-      </div>
-
-      <p v-if="inStock > 5">
-        Disponible
-      </p>
-      <p v-else-if="inStock <= 5 && 0 < inStock">
-        Peu de stock
-      </p>
-      <p v-else>
-        Indisponible
-      </p>
-      <p v-show="inStock > 5">
-        Test
-      </p>
-
-      <ul>
-        <li v-for="detail in details" :key="detail.id" :style="{color: detail.color}">
-          {{detail.text}}
-        </li>
-      </ul>
-
-      <button v-on:click="addToCart" :style="styles.roundButton" :disabled="inStock <= 0" :class="{disabledButton: inStock <= 0}">{{stringCart}}</button>
-
     </div>
 
     <!--Bootstrap-->

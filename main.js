@@ -3,9 +3,57 @@ const app = Vue.createApp({
         return {
             action: "Achat de cafés",
             brand: "Nespresso",
-            description:"super chers ce que tu veux",
-            selectedImage: 0,
             link: "https://www.nespresso.com",
+            description:"super chers ce que tu veux",
+            cart: 0
+        }
+
+    },
+    methods: {
+    },
+    computed: {
+        title () {
+            return this.action + " " + this.brand;
+        }
+    }    
+});
+
+app.component('product-display', {
+    template:
+    /*html*/
+    `
+    <img v-bind:src="image" height="200">
+    
+    <div>
+      <span v-for="(image, index) in carouselImages" :key="image.id" @mouseover="updateSelectedImage(index)">
+        <img :src="image.image" :alt="image.text" height="50">
+      </span>
+    </div>
+
+    <p v-if="inStock > 5">
+      Disponible
+    </p>
+    <p v-else-if="inStock <= 5 && 0 < inStock">
+      Peu de stock
+    </p>
+    <p v-else>
+      Indisponible
+    </p>
+    <p v-show="inStock > 5">
+      Test
+    </p>
+
+    <ul>
+      <li v-for="detail in details" :key="detail.id" :style="{color: detail.color}">
+        {{detail.text}}
+      </li>
+    </ul>
+
+    <button v-on:click="addToCart" :style="styles.roundButton" :disabled="inStock <= 0" :class="{disabledButton: inStock <= 0}">{{stringCart}}</button>
+    `,
+    data() {
+      return {
+        selectedImage: 0,
             inStock: 10,
             details: [                
                 {
@@ -46,7 +94,6 @@ const app = Vue.createApp({
                     image: "assets/images/colombia_tasse.png"
                 }
             ],
-            cart: 0,
             stringCart: "Ajouter au panier",
             styles: {
                 roundButton: {
@@ -57,8 +104,7 @@ const app = Vue.createApp({
                     cursor: "pointer"
                   }
             }
-        }
-
+      }
     },
     methods: {
         addToCart () {
@@ -72,28 +118,9 @@ const app = Vue.createApp({
         }
     },
     computed: {
-        title () {
-            return this.action + " " + this.brand;
-        },
         image () {
             return this.carouselImages[this.selectedImage].image;
         }
-    }    
-});
-
-app.component('product-display', {
-    template:
-    /*html*/
-    `
-    <h1>Coucou les minous</h1>
-    `,
-    data() {
-      return {
-      }
-    },
-    methods: {
-    },
-    computed: {
     }
   });
 
