@@ -26,12 +26,12 @@
       </h1>
       <p>{{description}}</p>
       
-      <div :class="[ cart > 0 ? 'cartFilled': '']">
+      <div :class="[ cart.length > 0 ? 'cartFilled': '']">
         Panier({{cart}})
       </div>
 
-      <product-display :premium="true" @add-to-cart="updateCart()"></product-display>
-      <product-display :premium="false" @add-to-cart="updateCart()"></product-display>
+      <product-display :uid="0" :premium="true" @add-to-cart="updateCart"></product-display>
+      <product-display :uid="1" :premium="false" @add-to-cart="updateCart"></product-display>
       
     </div>
 

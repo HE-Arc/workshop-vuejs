@@ -5,13 +5,13 @@ const app = Vue.createApp({
             brand: "Nespresso",
             link: "https://www.nespresso.com",
             description:"super chers ce que tu veux",
-            cart: 0
+            cart: []
         }
 
     },
     methods: {
-        updateCart() {
-            this.cart += 1;
+        updateCart(uid) {
+            this.cart.push(uid);
         }
     },
     computed: {

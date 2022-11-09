@@ -3,6 +3,10 @@ app.component('product-display', {
         premium: {
             type: Boolean,
             required: true
+        },
+        uid: {
+            type: Number,
+            required: true
         }
     },
     emits: [
@@ -103,7 +107,7 @@ app.component('product-display', {
     },
     methods: {
         addToCart () {
-            this.$emit("add-to-cart")
+            this.$emit("add-to-cart", this.uid)
         },
         updateImage (_image) {
             this.image = _image;
