@@ -17,8 +17,8 @@ Les prochaines étapes permettent de mettre en place l'environnement de dévelop
 ## Branches par année
 
 -   xxxx-main : la branche contenant la version du README le plus à jour, réalisé pour les étudiants de l'année xxxx
--   xxxx-start : la branche contenant le code de départ du workshop Laravel, réalisé avec les étudiants de l'année xxxx
--   xxxx-end : la branche contenant le code solution du workshop Laravel, réalisé avec les étudiants de l'année xxxx
+-   xxxx-start : la branche contenant le code de départ du workshop, réalisé avec les étudiants de l'année xxxx
+-   xxxx-end : la branche contenant le code solution du workshop, réalisé avec les étudiants de l'année xxxx
 
 # Comment utiliser
 
