@@ -17,7 +17,13 @@ Ce qu'il se passe dans l'application et dans chaque composant.
 
 ## ES6
 
-Si VSCode est utilisé installer `es6-string-html`, nous en aurons besoin plus tard.
+Si VSCode est utilisé, alors installez `es6-string-html`. Nous en aurons besoin plus tard.
+
+## Prettier (Optionnel)
+
+Le code du workshop est formatté avec [Prettier](https://prettier.io/). Sur VSCode, on le trouve dans les extensions avec l'ID suivant: `esbenp.prettier-vscode`.
+
+Ce n'est pas obligatoire d'utiliser ce formatteur spécifique, mais personnellement je le trouve bien :smile:
 
 ## CDN Vue
 
@@ -33,10 +39,12 @@ Copier-coller le CDN Vue sur la page de Vue 3 dans la balise head du HTML, nous 
 
 ## Init app Vue
 
-Dans le HTML avoir un div avec `id="app"` en haut de la balise `<body>`.
+Dans l'`index.html` avoir un div avec `id="app"` en dessous `<body>`.
 
 ```html
-<div id="app"></div>
+<body>
+  <div id="app"></div>
+  ...
 ```
 
 Et donc dans `main.js` on peut créer notre application Vue.
@@ -49,7 +57,7 @@ Il faut ensuite relié l'app VueJS à l'élément HTML avec l'id app.
 
 ```html
 <script>
-  const mountedApp = app.mount("#app");
+  const mountedApp = app.mount('#app');
 </script>
 ```
 
@@ -57,7 +65,7 @@ Il faut ensuite relié l'app VueJS à l'élément HTML avec l'id app.
 
 Ajoutons quelques éléments à notre app Vue.
 Ajoutons un titre (h1) à notre application à l'aide de Vue.
-Il faut donc créer une variable Vue dans data et l'utiliser dans le HTML à l'aide de `{{}}`.
+Il faut donc créer une variable `title` dans data et l'utiliser dans le fichier HTML à l'aide de `{{}}`.
 
 > ES6 syntaxe : `data: function() {}` --> `data() {}`
 
@@ -65,7 +73,7 @@ Il faut donc créer une variable Vue dans data et l'utiliser dans le HTML à l'a
 const app = Vue.createApp({
   data: function () {
     return {
-      title: "Achat de café Nespresso",
+      title: 'Achat de café Nespresso',
     };
   },
 });
@@ -76,7 +84,7 @@ const app = Vue.createApp({
 Il est possible d'interagir avec Vue depuis la console du navigateur en écrivant par exemple
 
 ```js
-mountedApp.title = "Ceci est un titre différent";
+mountedApp.title = 'Ceci est un titre différent';
 ```
 
 ## Challenge
@@ -89,7 +97,7 @@ v-bind permet de lier un attribut HTML à une expression.
 Exemple de syntaxe : `v-bind:src`, `v-bind:class`, `v-bind:disabled`
 
 Ajoutons une image grâce à ce concept.
-Il faut créer une nouvelle variable dans data et ensuite l'utiliser dans le HTML.
+Il faut créer une nouvelle variable dans data et ensuite l'utiliser dans le fichier HTML.
 
 ```HTML
 <img height="200" v-bind:src="image" />
@@ -146,7 +154,7 @@ Commençons par afficher une liste de détails à notre café.
 Il faut donc créer un tableau d'élément dans data.
 
 ```js
-details: ["Doux", "Harmonieux"];
+details: ['Doux', 'Harmonieux'];
 ```
 
 Puis l'utiliser dans le HTML.
@@ -240,7 +248,7 @@ Il est maintenant possible d'ajouter une nouvelle méthode afin de pouvoir ensui
 ```js
 methods: {
   addToCart: function() {
-    this.cart += 1
+    this.cart += 1;
   },
 }
 ```
@@ -325,7 +333,7 @@ details: [
 ```
 
 Dans le HTML il faut donc adapter son utilisation.
-Relier l'attribut id à l'élément `key` et il faut également adapter l'utilisation de l'affichage du texte en appelant la propriété de l'objet.
+Relier l'attribut id à l'élément `key` et il faut également adapter l'utilisation de l'affichage du texte en appelant la propriété `text` de l'objet.
 Au niveau du style il suffit d'utiliser `:style` en utilisant l'attribut `color` de `detail` et en le liant à l'attribut css `color`.
 
 ```html
@@ -356,11 +364,11 @@ Dans le JS on crée un objet qui va regrouper tous nos styles et on crée un nou
 ```js
 styles: {
   roundButton: {
-    borderRadius: "20px",
-    padding: "10px",
-    backgroundColor: "rgb(0, 114, 180)",
-    color: "white",
-    cursor: "pointer"
+    borderRadius: '20px',
+    padding: '10px',
+    backgroundColor: 'rgb(0, 114, 180)',
+    color: 'white',
+    cursor: 'pointer'
   }
 },
 ```
@@ -589,13 +597,13 @@ Pour illustrer notre exemple, nous allons réparer le bouton "Ajouter au panier"
 Commençons en allant dans `ProductDisplay.js` en modifiant le contenu de la méthode `addToCart()` par le code suivant qui permet d'envoyer un événement que nous allons ensuite réceptionner.
 
 ```js
-this.$emit("add-to-cart");
+this.$emit('add-to-cart');
 ```
 
-Il faut aussi indiquer le nouveau emit en haut du composant après propos.
+Il faut aussi indiquer le nouveau emit en haut du composant après `props`.
 
 ```js
-emits: ["add-to-cart"],
+emits: ['add-to-cart'],
 ```
 
 ## Recevoir
@@ -618,7 +626,7 @@ updateCart() {
 
 Il est également possible d'envoyer des paramètres au travers d'événement, modifions un peu notre code pour que le bouton ajouter nous envoyer l'index de l'image au moment de l'ajout de l'utilisateur. Cela nous permettra de savoir quand l'utilisateur a appuyé sur le bouton et ainsi d'en connaître l'image décisive.
 
-Il faut tout d'abord modifier notre var `cart` dans data pour accepter plusieurs entrer en le transformant en tableau.
+Il faut tout d'abord modifier notre var `cart` dans data pour accepter plusieurs entrés en le transformant en tableau.
 
 ```js
 cart: [];
@@ -627,7 +635,7 @@ cart: [];
 Puis envoyer la valeur à l'aide du `emit` et modifier un peu la méthode de réception.
 
 ```js
-this.$emit("add-to-cart", this.carouselImages[this.selectedImage].id);
+this.$emit('add-to-cart', this.carouselImages[this.selectedImage].id);
 ```
 
 ```js
@@ -757,12 +765,12 @@ onSubmit() {
 Et indiquer le nouveau emit après props.
 
 ```js
-emits: ["review-submitted"],
+emits: ['review-submitted'],
 ```
 
 ## Recevoir
 
-Ajoutons le composant dans `index.html` et utilisons-le dans `product-display`. On peut directement ajouter la directive `@` permettant de récupérer l'objet envoyé par le formulaire. (Ajouter un peu de bootstrap aussi)
+Importons le composant dans `index.html` et utilisons-le dans `product-display`. On peut directement ajouter la directive `@` permettant de récupérer l'objet envoyé par le formulaire. (Ajouter un peu de bootstrap aussi)
 
 ```html
 <div class="col-6 offset-3">
@@ -773,7 +781,7 @@ Ajoutons le composant dans `index.html` et utilisons-le dans `product-display`. 
 Maintenant, ajouter un tableau qui stockera nos messages dans data du composant `product-display`.
 
 ```js
-reviews: [];
+reviews: [],
 ```
 
 Et une méthode qui remplit le tableau.
