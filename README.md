@@ -24,7 +24,7 @@ Si VSCode est utilisé installer `es6-string-html`, nous en aurons besoin plus t
 Copier-coller le CDN Vue sur la page de Vue 3 dans la balise head du HTML, nous utiliserons une version précise, donc voici le CDN pour cette version.
 
 ```html
-<script src="https://unpkg.com/vue@3.2.37"></script>
+<script src="https://unpkg.com/vue@3.4.4"></script>
 ```
 
 > Source for CDN : https://www.bootstrapcdn.com/
