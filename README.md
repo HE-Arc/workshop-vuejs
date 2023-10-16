@@ -30,7 +30,7 @@ Ce n'est pas obligatoire d'utiliser ce formatteur spécifique, mais personnellem
 Copier-coller le CDN Vue sur la page de Vue 3 dans la balise head du HTML, nous utiliserons une version précise, donc voici le CDN pour cette version.
 
 ```html
-<script src="https://unpkg.com/vue@3.4.4"></script>
+<script src="https://unpkg.com/vue@3.3.4"></script>
 ```
 
 > Source for CDN : https://www.bootstrapcdn.com/
