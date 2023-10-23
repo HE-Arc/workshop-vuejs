@@ -1,7 +1,7 @@
 const app = Vue.createApp({
   data() {
     return {
-      action: "Commander du café",
+      action: "Achat de café",
       brand: "Nespresso",
       description:
         "L’histoire de NESPRESSO est celle d’une passion inaltérable pour la perfection et d’une quête inlassable d’innovation en faveur de la plus haute qualité.",

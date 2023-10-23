@@ -1,14 +1,14 @@
-app.component('product-display', {
+app.component("product-display", {
   props: {
     premium: {
       type: Boolean,
       required: true,
-    }
+    },
   },
   emits: ["add-to-cart"],
-  template: 
-  /*html*/
-  `
+  template:
+    /*html*/
+    `
   <div>
     <img height="200"
       v-bind:src="image"
@@ -56,70 +56,70 @@ app.component('product-display', {
           padding: "10px",
           backgroundColor: "rgb(0, 114, 180)",
           color: "white",
-          cursor: "pointer"
-        }
+          cursor: "pointer",
+        },
       },
       details: [
         {
           id: 1,
-          text: 'Doux',
-          color: '#6C99C6'
+          text: "Doux",
+          color: "#6C99C6",
         },
         {
           id: 2,
-          text: 'Harmonieux',
-          color: '#BF9E74'
-        }
+          text: "Harmonieux",
+          color: "#BF9E74",
+        },
       ],
       carouselImages: [
         {
           id: 1,
-          text: 'Capsule 1',
-          image: './assets/images/colombia.png',
+          text: "Capsule 1",
+          image: "./assets/images/colombia.png",
         },
         {
           id: 2,
-          text: 'Capsule 2',
-          image: './assets/images/colombia_de_cote.png',
+          text: "Capsule 2",
+          image: "./assets/images/colombia_de_cote.png",
         },
         {
           id: 3,
-          text: 'Tasse',
-          image: './assets/images/colombia_tasse.png',
+          text: "Tasse",
+          image: "./assets/images/colombia_tasse.png",
         },
         {
           id: 4,
-          text: 'Paquet',
-          image: './assets/images/colombia_paquet.png',
-        }
+          text: "Paquet",
+          image: "./assets/images/colombia_paquet.png",
+        },
       ],
-      reviews: []
-    }
+      reviews: [],
+    };
   },
   methods: {
     addToCart() {
-      this.$emit('add-to-cart', this.carouselImages[this.selectedImage].id)
+      this.$emit("add-to-cart", this.carouselImages[this.selectedImage].id);
     },
     updateSelectedImage(index) {
-      this.selectedImage = index
+      this.selectedImage = index;
     },
     addReview(review) {
-      this.reviews.push(review)
-    }
+      this.reviews.push(review);
+    },
   },
   computed: {
     image() {
-      return this.carouselImages[this.selectedImage].image
+      return this.carouselImages[this.selectedImage].image;
     },
     inStock() {
-      return this.stock > 0
+      return this.stock > 0;
     },
     shipping() {
       if (this.premium) {
-        return 'Free'
+        return "Free";
       }
 
-      return 2.99
-    }
-  }
+      return 2.99;
+    },
+  },
 });

@@ -1,13 +1,13 @@
-app.component('product-details', {
+app.component("product-details", {
   props: {
     details: {
       type: Array,
       required: true,
     },
   },
-  template: 
-  /*html*/
-  `
+  template:
+    /*html*/
+    `
   <ul>
     <li v-for="detail in details"
       :key="detail.id"
@@ -17,8 +17,8 @@ app.component('product-details', {
   </ul>
   `,
   data() {
-    return { }
+    return {};
   },
-  methods: { },
-  computed: { }
+  methods: {},
+  computed: {},
 });
