@@ -45,6 +45,7 @@ Dans l'`index.html` avoir un div avec `id="app"` en dessous `<body>`.
 <body>
   <div id="app"></div>
   ...
+</body>
 ```
 
 Et donc dans `main.js` on peut créer notre application Vue.
@@ -57,7 +58,7 @@ Il faut ensuite relié l'app VueJS à l'élément HTML avec l'id app.
 
 ```html
 <script>
-  const mountedApp = app.mount('#app');
+  const mountedApp = app.mount("#app");
 </script>
 ```
 
@@ -73,7 +74,7 @@ Il faut donc créer une variable `title` dans data et l'utiliser dans le fichier
 const app = Vue.createApp({
   data: function () {
     return {
-      title: 'Achat de café Nespresso',
+      title: "Achat de café Nespresso",
     };
   },
 });
@@ -84,7 +85,7 @@ const app = Vue.createApp({
 Il est possible d'interagir avec Vue depuis la console du navigateur en écrivant par exemple
 
 ```js
-mountedApp.title = 'Ceci est un titre différent';
+mountedApp.title = "Ceci est un titre différent";
 ```
 
 ## Challenge
@@ -154,7 +155,7 @@ Commençons par afficher une liste de détails à notre café.
 Il faut donc créer un tableau d'élément dans data.
 
 ```js
-details: ['Doux', 'Harmonieux'];
+details: ["Doux", "Harmonieux"];
 ```
 
 Puis l'utiliser dans le HTML.
@@ -461,7 +462,7 @@ data() { ... },
 methods: { ... },
 computed: {
   title() {
-    return this.action + ' ' + this.brand
+    return this.action + ' ' + this.brand;
   }
 }
 ```
@@ -559,10 +560,10 @@ Nous pouvons maintenant créer une propriété calculée `shipping()` dans le co
 ```js
 shipping() {
   if (this.premium) {
-    return 'Free'
+    return 'Free';
   }
 
-  return 2.99
+  return 2.99;
 }
 ```
 
@@ -597,7 +598,7 @@ Pour illustrer notre exemple, nous allons réparer le bouton "Ajouter au panier"
 Commençons en allant dans `ProductDisplay.js` en modifiant le contenu de la méthode `addToCart()` par le code suivant qui permet d'envoyer un événement que nous allons ensuite réceptionner.
 
 ```js
-this.$emit('add-to-cart');
+this.$emit("add-to-cart");
 ```
 
 Il faut aussi indiquer le nouveau emit en haut du composant après `props`.
@@ -614,7 +615,7 @@ Il nous faut donc réceptionner l'événement en ajoutant une directive `v-on` o
 
 ```js
 updateCart() {
-  this.cart += 1
+  this.cart += 1;
 }
 ```
 
@@ -629,18 +630,18 @@ Il est également possible d'envoyer des paramètres au travers d'événement, m
 Il faut tout d'abord modifier notre var `cart` dans data pour accepter plusieurs entrés en le transformant en tableau.
 
 ```js
-cart: [];
+cart: [],
 ```
 
 Puis envoyer la valeur à l'aide du `emit` et modifier un peu la méthode de réception.
 
 ```js
-this.$emit('add-to-cart', this.carouselImages[this.selectedImage].id);
+this.$emit("add-to-cart", this.carouselImages[this.selectedImage].id);
 ```
 
 ```js
 updateCart(id) {
-  this.cart.push(id)
+  this.cart.push(id);
 }
 ```
 
@@ -753,12 +754,12 @@ onSubmit() {
     name: this.name,
     review: this.review,
     rating: this.rating
-  }
-  this.$emit('review-submitted', productReview)
+  };
+  this.$emit('review-submitted', productReview);
 
-  this.name = ''
-  this.review = ''
-  this.rating = ''
+  this.name = '';
+  this.review = '';
+  this.rating = '';
 }
 ```
 
@@ -788,7 +789,7 @@ Et une méthode qui remplit le tableau.
 
 ```js
 addReview(review) {
-  this.reviews.push(review)
+  this.reviews.push(review);
 }
 ```
 
