@@ -155,7 +155,7 @@ Commençons par afficher une liste de détails à notre café.
 Il faut donc créer un tableau d'élément dans data.
 
 ```js
-details: ["Doux", "Harmonieux"];
+details: ["Doux", "Harmonieux"],
 ```
 
 Puis l'utiliser dans le HTML.
@@ -297,7 +297,7 @@ Ensuite nous pouvons modifier notre HTML comme ceci afin d'afficher les images e
     :key="carouselImage.id"
     @mouseover="updateImage(carouselImage.image)"
   >
-    <img height="50" alt="carouselImage.text" :src="carouselImage.image" />
+    <img height="50" :alt="carouselImage.text" :src="carouselImage.image" />
   </span>
 </div>
 ```
