@@ -15,10 +15,23 @@
     <link rel="stylesheet" href="./assets/style.css" />
 
     <!--Importation de Vue-->
+    <script src="https://unpkg.com/vue@3.3.4"></script>
   </head>
   <body>
     <!--Point d'entrée de l'app Vue-->
-    <h1 style="color: green">You are READY for the workshop ;)</h1>
+    <div id="app">
+      <h1><a :href="lien">{{title}}</a></h1>
+      <p>{{message}}</p>
+      <img height="200" :src="image" />
+      <p v-if="inStock">Disponible</p>
+      <p v-else>Plus de stock</p>
+
+      <p v-if="stock > 10">Disponible</p>
+      <p v-else-if="stock <= 10 && stock >0">Peu de stock</p>
+      <p v-else>Plus de stock</p>
+
+      <p v-show="onSale">En vente!</p>
+    </div>    
 
     <!--Bootstrap-->
     <script
@@ -29,5 +42,8 @@
 
     <!--Notre JS contenant notre app Vue-->
     <script src="./main.js"></script>
+    <script>
+      const mountedApp = app.mount("#app");
+    </script>
   </body>
 </html>
