@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <title>Ceci est un titre</title>
+    <title>Achat Nespresso</title>
 
     <!--Bootstrap-->
     <link
@@ -21,12 +21,10 @@
     <!--Point d'entrée de l'app Vue-->
     <div id="app">
       <h1><a :href="lien">{{title}}</a></h1>
-      <p>{{message}}</p>    
+      <p>{{message}}</p>
       <product-display></product-display>
       <div :class="[cart > 0 ? 'cartFilled' : '']">panier: {{cart}}</div>
-    </div>  
-    
-
+    </div>
 
     <!--Bootstrap-->
     <script

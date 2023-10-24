@@ -1,5 +1,5 @@
-app.component('product-display', {
-    template:
+app.component("product-display", {
+  template:
     /*html*/
     `
     <img height="200" :src="image" :class="[inStock ? '' : 'stockEmpty']" />
@@ -56,92 +56,93 @@ app.component('product-display', {
    >Enlever du panier
   </button>
     `,
-    data() {
-      return {
-        selectedImage: 0,
-            stock: 10,
-            onSale: true,
-            details: [
-                {
-                  id: 1,
-                  text: 'Doux',
-                  color: '#6C99C6'
-                },
-                {
-                  id: 2,
-                  text: 'Harmonieux',
-                  color: '#BF9E74'
-                }
-              ],
-            carouselImages: [
-                {
-                  id: 1,
-                  text: 'Capsule 1',
-                  image: './assets/images/colombia.png',
-                },
-                {
-                  id:  2,
-                  text: 'Capsule 2',
-                  image: './assets/images/colombia_de_cote.png',
-                },
-                {
-                  id: 3,
-                  text: 'Tasse',
-                  image: './assets/images/colombia_tasse.png',
-                },
-                {
-                  id: 4,
-                  text: 'Paquet',
-                  image: './assets/images/colombia_paquet.png',
-                }],
-            styles: {
-                roundButton: {
-                    borderRadius: '20px',
-                    padding: '10px',
-                    backgroundColor: 'rgb(0, 114, 180)',
-                    color: 'white',
-                    cursor: 'pointer'
-                }
-            },            
-            paquets: [
-                {
-                    id: 1,
-                    quantity: 4,
-                    price: 3.5,
-                },
-                {
-                    id: 2,
-                    quantity: 10,
-                    price: 8.5,
-                },
-                {
-                    id: 3,
-                    quantity: 20,
-                    price: 15,
-                },
-            ],
-      }
+  data() {
+    return {
+      selectedImage: 0,
+      stock: 10,
+      onSale: true,
+      details: [
+        {
+          id: 1,
+          text: "Doux",
+          color: "#6C99C6",
+        },
+        {
+          id: 2,
+          text: "Harmonieux",
+          color: "#BF9E74",
+        },
+      ],
+      carouselImages: [
+        {
+          id: 1,
+          text: "Capsule 1",
+          image: "./assets/images/colombia.png",
+        },
+        {
+          id: 2,
+          text: "Capsule 2",
+          image: "./assets/images/colombia_de_cote.png",
+        },
+        {
+          id: 3,
+          text: "Tasse",
+          image: "./assets/images/colombia_tasse.png",
+        },
+        {
+          id: 4,
+          text: "Paquet",
+          image: "./assets/images/colombia_paquet.png",
+        },
+      ],
+      styles: {
+        roundButton: {
+          borderRadius: "20px",
+          padding: "10px",
+          backgroundColor: "rgb(0, 114, 180)",
+          color: "white",
+          cursor: "pointer",
+        },
+      },
+      paquets: [
+        {
+          id: 1,
+          quantity: 4,
+          price: 3.5,
+        },
+        {
+          id: 2,
+          quantity: 10,
+          price: 8.5,
+        },
+        {
+          id: 3,
+          quantity: 20,
+          price: 15,
+        },
+      ],
+    };
+  },
+  methods: {
+    updateImage(newImage) {
+      this.image = newImage;
     },
-    methods: {
-        updateImage(newImage) {
-            this.image = newImage;
-        },
-        updateSelectedImage(index) {
-            this.selectedImage = index;
-        },
-        addToCart() {
-            this.cart += 1;
-        },
-        removeFromCart() {
-            this.cart -= 1;
-        },
+    updateSelectedImage(index) {
+      this.selectedImage = index;
     },
-    computed: {
-        image() {
-            return this.carouselImages[this.selectedImage].image;
-        },
-        inStock() {
-            return this.stock > 0;
-        }
-    }
-  });
+    addToCart() {
+      this.cart += 1;
+    },
+    removeFromCart() {
+      this.cart -= 1;
+    },
+  },
+  computed: {
+    image() {
+      return this.carouselImages[this.selectedImage].image;
+    },
+    inStock() {
+      return this.stock > 0;
+    },
+  },
+});
