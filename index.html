@@ -21,62 +21,9 @@
     <!--Point d'entrée de l'app Vue-->
     <div id="app">
       <h1><a :href="lien">{{title}}</a></h1>
-      <p>{{message}}</p>
-      <img height="200" :src="image" :class="[stock > 0 ? '' : 'stockEmpty']" />
-      <div>
-        <span
-          v-for="carouselImage in carouselImages"
-          :key="carouselImage.id"
-          @mouseover="updateImage(carouselImage.image)"
-        >
-          <img height="50" :alt="carouselImage.text" :src="carouselImage.image" />
-        </span>
-      </div>
-      <p v-if="inStock">Disponible</p>
-      <p v-else>Plus de stock</p>
-
-      <p v-if="stock > 10">Disponible</p>
-      <p v-else-if="stock <= 10 && stock >0">Peu de stock</p>
-      <p v-else>Plus de stock</p>
-
-      <p v-show="onSale">En vente!</p>
-
-      <ul>
-        <li
-          v-for="detail in details"
-          :key="detail.id"
-          :style="{ color: detail.color }"
-        >
-          {{ detail.text }}
-        </li>
-      </ul>
-
-      <div v-for="carouselImage in carouselImages" :key="carouselImage.id">
-        {{ carouselImage.text }}
-      </div>
-
-     <div v-for="paquet in paquets" :key="paquets.id">
-      Id: : {{ paquet.id}}
-      Quantité:  {{ paquet.quantity}}
-      Prix:  {{ paquet.price}}
-     </div>
-
-     <button 
-     @click="addToCart"
-     :style="styles.roundButton" 
-     :disabled = "stock <= 0"
-     :class="{ disabledButton: stock <= 0 }" 
-     >Ajouter au panier
-    </button>
-     <button 
-     @click="removeFromCart" 
-     :style="styles.roundButton" 
-     :disabled = "stock <= 0"
-     :class="{ disabledButton: stock <= 0 }"
-     >Enlever du panier
-    </button>
-    <div :class="[cart > 0 ? 'cartFilled' : '']">panier: {{cart}}</div>
-
+      <p>{{message}}</p>    
+      <product-display></product-display>
+      <div :class="[cart > 0 ? 'cartFilled' : '']">panier: {{cart}}</div>
     </div>  
     
 
@@ -90,6 +37,7 @@
 
     <!--Notre JS contenant notre app Vue-->
     <script src="./main.js"></script>
+    <script src="./ProductDisplay.js"></script>
     <script>
       const mountedApp = app.mount("#app");
     </script>
