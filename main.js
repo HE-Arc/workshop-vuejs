@@ -4,11 +4,16 @@ const app = Vue.createApp({
       action: "Achat de café",
       brand: "Nespresso",
       message: "Bonjour, veuillez choisir votre café",
-      cart: 0,
+      cart: [],
+      premium: true,
       lien: "https://www.nespresso.com/ch/en/",
     };
   },
-  methods: {},
+  methods: {
+    updateCart(id) {
+      this.cart.push(id);
+    }
+  },
   computed: {
     title() {
       return this.action + " " + this.brand;

@@ -20,10 +20,23 @@
   <body>
     <!--Point d'entrée de l'app Vue-->
     <div id="app">
-      <h1><a :href="lien">{{title}}</a></h1>
-      <p>{{message}}</p>
-      <product-display></product-display>
-      <div :class="[cart > 0 ? 'cartFilled' : '']">panier: {{cart}}</div>
+      <div class="container">
+        <div class="row">
+          <div id="col-8">
+            <h1><a :href="lien">{{title}}</a></h1>
+            <p>{{message}}</p>
+          </div>
+          <div id="col-12">
+            <product-display :premium="premium" @add-to-cart="updateCart">
+            </product-display>
+          </div>
+          <div id="col-4">
+            <div :class="[cart > 0 ? 'cartFilled' : '']">
+              panier: {{cart.length}}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!--Bootstrap-->
@@ -35,7 +48,11 @@
 
     <!--Notre JS contenant notre app Vue-->
     <script src="./main.js"></script>
-    <script src="./ProductDisplay.js"></script>
+    <script src="./components/ProductDisplay.js"></script>
+    <script src="./components/ProductDetails.js"></script>
+    <script src="./components/ReviewForm.js"></script>
+    <script src="./components/ReviewList.js"></script>
+
     <script>
       const mountedApp = app.mount("#app");
     </script>
