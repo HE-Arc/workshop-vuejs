@@ -34,7 +34,7 @@ Cependant, dans le cadre du workshop, nous allons utiliser un CDN afin de gagner
 Copier-coller le CDN Vue sur la page de Vue 3 dans la balise head du HTML, nous utiliserons une version précise, donc voici le CDN pour cette version.
 
 ```html
-<script src="https://unpkg.com/vue@3.5.12/dist/vue.global.js"></script>
+<script src="https://unpkg.com/vue@3.5.22/dist/vue.global.js"></script>
 ```
 
 > Source for CDN : https://vuejs.org/guide/quick-start.html#using-vue-from-cdn
@@ -54,13 +54,27 @@ Dans l'`index.html` avoir un div avec `id="app"` en dessous `<body>`.
 Et donc dans `main.js` on peut créer notre application Vue.
 
 ```js
-const app = Vue.createApp({});
+const { createApp } = Vue;
+
+const app = createApp({
+  data() {
+    return {
+    
+    }
+  }
+});
 ```
 
 Il faut ensuite relié l'app VueJS à l'élément HTML avec l'id app.
 
 ```html
 <script>
+  const { createApp } = Vue;
+  
+  const app = createApp({
+  
+  });
+  
   const mountedApp = app.mount('#app');
 </script>
 ```
@@ -74,13 +88,17 @@ Il faut donc créer une variable `title` dans data et l'utiliser dans le fichier
 > ES6 syntaxe : `data: function() {}` --> `data() {}`
 
 ```js
-const app = Vue.createApp({
-  data: function () {
+const { createApp } = Vue;
+
+const app = createApp({
+  data() {
     return {
       title: 'Achat de café Nespresso',
     };
   },
 });
+
+const mountedApp = app.mount('#app');
 ```
 
 > {{}} interprète ce qui se trouve dedans, cela permet d'effectuer des opérations en tout genre (concaténation, opération ternaire, etc.)
@@ -604,7 +622,7 @@ Commençons en allant dans `ProductDisplay.js` en modifiant le contenu de la mé
 this.$emit('add-to-cart');
 ```
 
-Il faut aussi indiquer le nouveau emit en haut du composant après `props`.
+Bonne pratique Vue 3, Il faut aussi indiquer le nouveau emit en haut du composant après `props`.
 
 ```js
 emits: ['add-to-cart'],
@@ -860,9 +878,12 @@ Cette application nous à permit de comprendre les concepts de Vue.js, en princi
 
 Également la manière de créer les composants et l'architecture générale de ce projet n'est pas bonne. Cette structure et la manière dont ce projet est organisé permettent simplement de se concentrer sur les concepts fondamentaux de Vue.js, sans se préoccuper de la structure, etc.
 
-Le site de Vue expose toutes les possibilités d'installation et les explique : https://v3.vuejs.org/guide/installation.html.
+La documentation officielle de Vue 3 est maintenant disponible ici : https://vuejs.org/guide/
+Pour démarrer un projet complet, la méthode recommandée est : npm create vue@latest
 
-Vue.js peut être utilisé de plusieurs manières. Seul pour gérer toute l'application (avec Vue Router, VueX, etc.) ou en combinaison avec un autre Framework. Dans ce deuxième cas de figure Vue s'occuperont de la partie FrontEnd et l'autre Framework du BackEnd.
+Vue.js peut être utilisé de plusieurs manières. Seul pour gérer toute l'application (avec Pinia  VueX, etc,) ou en combinaison avec un autre Framework. Dans ce deuxième cas de figure Vue s'occuperont de la partie FrontEnd et l'autre Framework du BackEnd.
+
+Pour les améliorations possible penser à l’UX (ex : animations, validations en temps réel avec feedback utilisateur).
 
 Dans la prochaine étape, nous allons voir une des possibilités d'utiliser Vue dans son projet. Nous allons utiliser au maximum le plein potentiel de Vue dans cette deuxième étape en créant et en utilisant Vue pour réaliser se qu'il sait faire de mieux; une SPA (Single Page Application).
 
