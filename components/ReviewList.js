@@ -1,13 +1,13 @@
-app.component('review-list', {
+app.component("review-list", {
   props: {
     reviews: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   template:
-  /*html*/
-  `
+    /*html*/
+    `
   <h3>Messages :</h3>
 
   <div class="card mb-3" v-for="(review, index) in reviews" :key="index">
@@ -21,5 +21,5 @@ app.component('review-list', {
       </p>
     </div>
   </div>
-  `
+  `,
 });

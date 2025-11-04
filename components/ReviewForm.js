@@ -1,8 +1,8 @@
-app.component('review-form', {
+app.component("review-form", {
   emits: ["review-submitted"],
   template:
-  /*html*/
-  `
+    /*html*/
+    `
   <form @submit.prevent="onSubmit">
     <h3>Laissez un message</h3>
     <div class="form-group">
@@ -31,28 +31,28 @@ app.component('review-form', {
   `,
   data() {
     return {
-      name: '',
-      review: '',
-      rating: null
-    }
+      name: "",
+      review: "",
+      rating: null,
+    };
   },
   methods: {
     onSubmit() {
-      if (this.name === '' || this.review === '' || this.rating === null) {
-        alert('Formulaire incomplet. Remplissez tous les champs svp.')
-        return
+      if (this.name === "" || this.review === "" || this.rating === null) {
+        alert("Formulaire incomplet. Remplissez tous les champs svp.");
+        return;
       }
 
       let productReview = {
         name: this.name,
         review: this.review,
-        rating: this.rating
-      }
-      this.$emit('review-submitted', productReview)
+        rating: this.rating,
+      };
+      this.$emit("review-submitted", productReview);
 
-      this.name = ''
-      this.review = ''
-      this.rating = null
-    }
-  }
+      this.name = "";
+      this.review = "";
+      this.rating = null;
+    },
+  },
 });
