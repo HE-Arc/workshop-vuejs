@@ -8,7 +8,7 @@ Toutes les étapes sont décrites à la suite de ce document.
 
 ## Vue Devtools
 
-Installer Vue Devtools à partir d'ici : https://devtools.vuejs.org/guide/installation.html
+Installer Vue Devtools à partir d'ici : [https://devtools.vuejs.org/guide/installation.html](https://devtools.vuejs.org/guide/browser-extension)
 
 Vue Devtools permet de visualiser la structure et les données de l'application.
 Ce qu'il se passe dans l'application et dans chaque composant.
