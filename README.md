@@ -69,12 +69,6 @@ Il faut ensuite relié l'app VueJS à l'élément HTML avec l'id app.
 
 ```html
 <script>
-  const { createApp } = Vue;
-  
-  const app = createApp({
-  
-  });
-  
   const mountedApp = app.mount('#app');
 </script>
 ```
@@ -97,8 +91,6 @@ const app = createApp({
     };
   },
 });
-
-const mountedApp = app.mount('#app');
 ```
 
 > {{}} interprète ce qui se trouve dedans, cela permet d'effectuer des opérations en tout genre (concaténation, opération ternaire, etc.)
