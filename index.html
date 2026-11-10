@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ceci est un titre</title>
 
     <!--Bootstrap-->
@@ -11,15 +13,10 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-
-    <!--Notre CSS-->
-    <link rel="stylesheet" href="./assets/style.css" />
-
-    <!--Importation de Vue-->
   </head>
   <body>
     <!--Point d'entrée de l'app Vue-->
-    <h1 style="color: green">You are READY for the workshop ;)</h1>
+    <div id="app"></div>
 
     <!--Bootstrap-->
     <script
@@ -34,6 +31,6 @@
     ></script>
 
     <!--Notre JS contenant notre app Vue-->
-    <script src="./main.js"></script>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
